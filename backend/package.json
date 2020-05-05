@@ -1,0 +1,20 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "nodemon --inspect=0.0.0.0 -r \"sucrase/register\" src/index.js",
+    "start": "node -r esm src/index.js"
+  },
+  "author": "Jair Batista Junior",
+  "license": "MIT",
+  "dependencies": {
+    "esm": "^3.2.25",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.3",
+    "sucrase": "^3.13.0"
+  }
+}
