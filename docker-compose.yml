@@ -16,9 +16,9 @@ services:
     image: pop/frontend
     environment:
       - NODE_ENV=development
+      - CI=true
     volumes:
       - ./frontend:/root
     ports:
       - 3000:3000
-    # command: bash -c "yarn install && yarn start"
-    # command: ["bash", "-c", "yarn start"]
+    command: bash -c "yarn install && yarn start"
