@@ -10,11 +10,15 @@ services:
       - 3333:3333
       - 9229:9229
     command: bash -c "yarn dev"
+
   frontend:
     build: ./frontend
     image: pop/frontend
-    # volumes:
-    #   - ./frontend:/root
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - ./frontend:/root
     ports:
-      - 8080:8080
-    # command: bash -c "yarn dev"
+      - 3000:3000
+    # command: bash -c "yarn install && yarn start"
+    # command: ["bash", "-c", "yarn start"]

@@ -12,13 +12,16 @@ RUN yarn build
 #Step 2-------------------
 FROM node:12-alpine
 
+RUN apk update && \
+  apk add --no-cache bash
+
 # Create and change to the app directory.
 WORKDIR /root
 
 RUN npm install -g serve
 
-COPY --from=react-build /app/build /root
+COPY --from=react-build /app/build .
 
 EXPOSE 8080
 
-CMD ["serve", "-s", "-l", "8080", "./"]
+CMD ["serve", "-s", "-l", "8080", "."]
